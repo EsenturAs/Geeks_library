@@ -16,6 +16,7 @@ class Book(models.Model):
     genre = models.CharField(max_length=100, choices=genre_choices, verbose_name="Введите жанр")
     author_email = models.CharField(max_length=100, verbose_name="Введите email автора")
     author = models.CharField(max_length=100, verbose_name="Введите имя автора")
+    review_link = models.URLField(verbose_name="Введите ссылку на обзор на youtube", null=True)
 
     class Meta:
         verbose_name = 'книга'
