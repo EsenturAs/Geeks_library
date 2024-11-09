@@ -2,7 +2,7 @@ from datetime import datetime
 from django.shortcuts import render, get_object_or_404
 from django.http import HttpResponse
 
-from main_page.models import Book
+from main_page.models import Book, ReviewBooks
 
 
 # book_list
@@ -28,7 +28,8 @@ def about_me(request):
 
 def about_my_pets(request):
     if request.method == 'GET':
-        return HttpResponse("My dog Charlie: <img src = 'https://www.nylabone.com/-/media/project/oneweb/nylabone/images/dog101/10-intelligent-dog-breeds/golden-retriever-tongue-out.jpg'  >")
+        return HttpResponse(
+            "My dog Charlie: <img src = 'https://www.nylabone.com/-/media/project/oneweb/nylabone/images/dog101/10-intelligent-dog-breeds/golden-retriever-tongue-out.jpg'  >")
 
 
 def system_time(request):
