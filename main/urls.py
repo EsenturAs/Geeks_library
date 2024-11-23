@@ -13,6 +13,7 @@ urlpatterns = [
     path('', include("hashtags.urls")),
     path('', include("basket.urls")),
     path('', include("parsing_ranobelib.urls")),
+    path('', include("users.urls")),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

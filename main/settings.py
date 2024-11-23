@@ -30,7 +30,8 @@ INSTALLED_APPS = [
     'main_page',
     'hashtags',
     'basket',
-    'parsing_ranobelib'
+    'parsing_ranobelib',
+    'users',
 ]
 
 MIDDLEWARE = [
@@ -41,6 +42,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'users.middlewares.QualifSalaryMiddleware',
 ]
 
 ROOT_URLCONF = 'main.urls'
