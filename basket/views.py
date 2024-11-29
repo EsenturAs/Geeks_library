@@ -6,9 +6,9 @@ from django.views import generic
 
 
 class OrderView(generic.CreateView):
-    template_name = 'basket/make_an_order.html'
+    template_name = "basket/make_an_order.html"
     form_class = forms.BasketForm
-    success_url = '/order_list/'
+    success_url = "/order_list/"
 
     def form_valid(self, form):
         print(form.cleaned_data)
@@ -27,12 +27,12 @@ class OrderView(generic.CreateView):
 
 
 class OrderListView(generic.ListView):
-    template_name = 'basket/order_list.html'
-    context_object_name = 'order_list'
+    template_name = "basket/order_list.html"
+    context_object_name = "order_list"
     model = models.Order
 
     def get_queryset(self):
-        return self.model.objects.filter().order_by('-id')
+        return self.model.objects.filter().order_by("-id")
 
 
 # def order_list_view(request):
@@ -43,16 +43,16 @@ class OrderListView(generic.ListView):
 
 
 class UpdateOrderView(generic.UpdateView):
-    template_name = 'basket/update_order.html'
+    template_name = "basket/update_order.html"
     form_class = forms.BasketForm
-    success_url = '/order_list/'
+    success_url = "/order_list/"
 
     def form_valid(self, form):
         print(form.cleaned_data)
         return super(UpdateOrderView, self).form_valid(form=form)
 
     def get_object(self):
-        order_id = self.kwargs.get('id')
+        order_id = self.kwargs.get("id")
         return get_object_or_404(models.Order, id=order_id)
 
 
@@ -69,11 +69,11 @@ class UpdateOrderView(generic.UpdateView):
 
 
 class DeleteOrderView(generic.DeleteView):
-    template_name = 'basket/delete_order.html'
-    success_url = '/order_list/'
+    template_name = "basket/delete_order.html"
+    success_url = "/order_list/"
 
     def get_object(self, **kwargs):
-        order_id = self.kwargs.get('id')
+        order_id = self.kwargs.get("id")
         return get_object_or_404(models.Order, id=order_id)
 
 

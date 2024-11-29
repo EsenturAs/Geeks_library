@@ -7,12 +7,12 @@ from main_page.models import Book
 
 # book_list
 class BookListView(generic.ListView):
-    template_name = 'book.html'
+    template_name = "book.html"
     model = Book
-    context_object_name = 'book_list'
+    context_object_name = "book_list"
 
     def get_queryset(self):
-        return self.model.objects.filter().order_by('-id')
+        return self.model.objects.select_related().order_by("-id")
 
 
 # def book_list_view(request):
@@ -22,14 +22,19 @@ class BookListView(generic.ListView):
 #         return render(request, template_name="book.html", context=context)
 
 
+from django.views.decorators.cache import cache_page
+from django.utils.decorators import method_decorator
+
+
 # book_detail
+@method_decorator(cache_page(60 * 15), name="dispatch")
 class BookDetailView(generic.DetailView):
-    template_name = 'book_detail.html'
+    template_name = "book_detail.html"
     model = Book
-    context_object_name = 'book_id'
+    context_object_name = "book_id"
 
     def get_object(self, **kwargs):
-        book_id = self.kwargs.get('id')
+        book_id = self.kwargs.get("id")
         return get_object_or_404(Book, id=book_id)
 
 
@@ -41,22 +46,26 @@ class BookDetailView(generic.DetailView):
 
 
 class SearchView(generic.ListView):
-    template_name = 'book.html'
-    context_object_name = 'book_list'
+    template_name = "book.html"
+    context_object_name = "book_list"
     paginate_by = 5
 
     def get_queryset(self):
-        return Book.objects.filter(title__icontains=self.request.GET.get('q')).order_by('-id')
+        return Book.objects.filter(title__icontains=self.request.GET.get("q")).order_by(
+            "-id"
+        )
 
     def get_context_data(self, *, object_list=None, **kwargs):
         context = super().get_context_data(**kwargs)
-        context['q'] = self.request.GET.get('q')
+        context["q"] = self.request.GET.get("q")
         return context
 
 
 class AboutMeView(View):
     def get(self, request, *args, **kwargs):
-        return HttpResponse('First name: Esentur, Last name: Asankulov, Age: 17, Gender: Male')
+        return HttpResponse(
+            "First name: Esentur, Last name: Asankulov, Age: 17, Gender: Male"
+        )
 
 
 # def about_me(request):
@@ -66,7 +75,9 @@ class AboutMeView(View):
 
 class AboutMyPetsView(View):
     def get(self, request, *args, **kwargs):
-        return HttpResponse("My dog Charlie: <img src = 'https://www.nylabone.com/-/media/project/oneweb/nylabone/images/dog101/10-intelligent-dog-breeds/golden-retriever-tongue-out.jpg'  >")
+        return HttpResponse(
+            "My dog Charlie: <img src = 'https://www.nylabone.com/-/media/project/oneweb/nylabone/images/dog101/10-intelligent-dog-breeds/golden-retriever-tongue-out.jpg'  >"
+        )
 
 
 # def about_my_pets(request):

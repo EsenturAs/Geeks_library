@@ -6,17 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('parsing_ranobelib', '0003_rename_rating_ranobelib_chapter'),
+        ("parsing_ranobelib", "0003_rename_rating_ranobelib_chapter"),
     ]
 
     operations = [
         migrations.RemoveField(
-            model_name='ranobelib',
-            name='country',
+            model_name="ranobelib",
+            name="country",
         ),
         migrations.AddField(
-            model_name='ranobelib',
-            name='time',
+            model_name="ranobelib",
+            name="time",
             field=models.CharField(max_length=900, null=True),
         ),
     ]

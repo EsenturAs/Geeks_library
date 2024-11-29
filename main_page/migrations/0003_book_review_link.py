@@ -6,13 +6,15 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main_page', '0002_book_description'),
+        ("main_page", "0002_book_description"),
     ]
 
     operations = [
         migrations.AddField(
-            model_name='book',
-            name='review_link',
-            field=models.URLField(null=True, verbose_name='Введите ссылку на обзор на youtube'),
+            model_name="book",
+            name="review_link",
+            field=models.URLField(
+                null=True, verbose_name="Введите ссылку на обзор на youtube"
+            ),
         ),
     ]

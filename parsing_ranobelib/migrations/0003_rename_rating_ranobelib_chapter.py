@@ -6,13 +6,13 @@ from django.db import migrations
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('parsing_ranobelib', '0002_remove_ranobelib_chapter_ranobelib_rating'),
+        ("parsing_ranobelib", "0002_remove_ranobelib_chapter_ranobelib_rating"),
     ]
 
     operations = [
         migrations.RenameField(
-            model_name='ranobelib',
-            old_name='rating',
-            new_name='chapter',
+            model_name="ranobelib",
+            old_name="rating",
+            new_name="chapter",
         ),
     ]

@@ -8,22 +8,49 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('main_page', '0004_alter_book_genre'),
+        ("main_page", "0004_alter_book_genre"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='ReviewBooks',
+            name="ReviewBooks",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('created_date', models.DateField(auto_now_add=True, null=True)),
-                ('description', models.TextField(verbose_name='Оставьте отзыв о книге')),
-                ('mark', models.PositiveIntegerField(validators=[django.core.validators.MinValueValidator(1), django.core.validators.MaxValueValidator(5)], verbose_name='Укажите оценку от 1 до 5')),
-                ('review_books', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, related_name='review_books', to='main_page.book')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("created_date", models.DateField(auto_now_add=True, null=True)),
+                (
+                    "description",
+                    models.TextField(verbose_name="Оставьте отзыв о книге"),
+                ),
+                (
+                    "mark",
+                    models.PositiveIntegerField(
+                        validators=[
+                            django.core.validators.MinValueValidator(1),
+                            django.core.validators.MaxValueValidator(5),
+                        ],
+                        verbose_name="Укажите оценку от 1 до 5",
+                    ),
+                ),
+                (
+                    "review_books",
+                    models.ForeignKey(
+                        on_delete=django.db.models.deletion.CASCADE,
+                        related_name="review_books",
+                        to="main_page.book",
+                    ),
+                ),
             ],
             options={
-                'verbose_name': 'комментарий',
-                'verbose_name_plural': 'комментарии',
+                "verbose_name": "комментарий",
+                "verbose_name_plural": "комментарии",
             },
         ),
     ]

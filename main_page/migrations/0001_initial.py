@@ -7,25 +7,62 @@ class Migration(migrations.Migration):
 
     initial = True
 
-    dependencies = [
-    ]
+    dependencies = []
 
     operations = [
         migrations.CreateModel(
-            name='Book',
+            name="Book",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('image', models.ImageField(upload_to='books/', verbose_name='Загрузите обложку')),
-                ('title', models.CharField(max_length=100, verbose_name='Введите название книги')),
-                ('price', models.IntegerField(verbose_name='Введите цену')),
-                ('release_date', models.DateField(verbose_name='Введите дату выхода')),
-                ('genre', models.CharField(choices=[('Комедия', 'Комедия'), ('Драма', 'Драма'), ('Ужасы', 'Ужасы'), ('Романтика', 'Романтика')], max_length=100, verbose_name='Введите жанр')),
-                ('author_email', models.CharField(max_length=100, verbose_name='Введите email автора')),
-                ('author', models.CharField(max_length=100, verbose_name='Введите имя автора')),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                (
+                    "image",
+                    models.ImageField(
+                        upload_to="books/", verbose_name="Загрузите обложку"
+                    ),
+                ),
+                (
+                    "title",
+                    models.CharField(
+                        max_length=100, verbose_name="Введите название книги"
+                    ),
+                ),
+                ("price", models.IntegerField(verbose_name="Введите цену")),
+                ("release_date", models.DateField(verbose_name="Введите дату выхода")),
+                (
+                    "genre",
+                    models.CharField(
+                        choices=[
+                            ("Комедия", "Комедия"),
+                            ("Драма", "Драма"),
+                            ("Ужасы", "Ужасы"),
+                            ("Романтика", "Романтика"),
+                        ],
+                        max_length=100,
+                        verbose_name="Введите жанр",
+                    ),
+                ),
+                (
+                    "author_email",
+                    models.CharField(
+                        max_length=100, verbose_name="Введите email автора"
+                    ),
+                ),
+                (
+                    "author",
+                    models.CharField(max_length=100, verbose_name="Введите имя автора"),
+                ),
             ],
             options={
-                'verbose_name': 'книга',
-                'verbose_name_plural': 'книги',
+                "verbose_name": "книга",
+                "verbose_name_plural": "книги",
             },
         ),
     ]

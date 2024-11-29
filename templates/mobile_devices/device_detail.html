@@ -1,0 +1,22 @@
+{% include 'header.html' %}
+
+<!-- Контент с информацией о книге -->
+<div class="container mt-4">
+    <div class="book-card">
+        <div class="card">
+            <img src="{{device_id.image.url}}" class="card-img-top" alt="Телефон">
+            <div class="card-body">
+                <h5 class="card-title">{{device_id.name}}</h5>
+                <p><strong>Категория:</strong> {{device_id.category}}</p>
+                <p><strong>Дата выхода:</strong> {{device_id.release_date}}</p>
+                <p><strong>Производитель:</strong> {{device_id.manufacturer}}</p>
+                <p><strong>Цена:</strong> ${{device_id.price}}</p>
+                <p><strong>Особенности:</strong></p>
+                {% for i in device_id.features.all %}
+                    <p> - {{i}}</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+{% include 'footer.html' %}

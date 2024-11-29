@@ -4,12 +4,12 @@ from django.views import generic
 
 
 class ProductListView(generic.ListView):
-    template_name = 'all_products_list.html'
-    context_object_name = 'products_list'
+    template_name = "all_products_list.html"
+    context_object_name = "products_list"
     model = models.Product
 
     def get_queryset(self):
-        return self.model.objects.filter().order_by('-id')
+        return self.model.objects.filter().order_by("-id")
 
 
 # def all_products_list_view(request):
@@ -21,12 +21,12 @@ class ProductListView(generic.ListView):
 
 
 class ForElderView(generic.ListView):
-    template_name = 'elder.html'
-    context_object_name = 'for_elder'
+    template_name = "elder.html"
+    context_object_name = "for_elder"
     model = models.Product
 
     def get_queryset(self):
-        return self.model.objects.filter(tags__age="Пристарелые").order_by('-id')
+        return self.model.objects.filter(tags__age="Пристарелые").order_by("-id")
 
 
 # def for_elder_view(request):
@@ -38,12 +38,12 @@ class ForElderView(generic.ListView):
 
 
 class ForYoungView(generic.ListView):
-    template_name = 'young.html'
-    context_object_name = 'for_young'
+    template_name = "young.html"
+    context_object_name = "for_young"
     model = models.Product
 
     def get_queryset(self):
-        return self.model.objects.filter(tags__age="Молодые").order_by('-id')
+        return self.model.objects.filter(tags__age="Молодые").order_by("-id")
 
 
 # def for_young_view(request):
@@ -55,12 +55,12 @@ class ForYoungView(generic.ListView):
 
 
 class ForKidsView(generic.ListView):
-    template_name = 'kids.html'
-    context_object_name = 'for_kids'
+    template_name = "kids.html"
+    context_object_name = "for_kids"
     model = models.Product
 
     def get_queryset(self):
-        return self.model.objects.filter(tags__age="Дети").order_by('-id')
+        return self.model.objects.filter(tags__age="Дети").order_by("-id")
 
 
 # def for_kids_view(request):

@@ -1,0 +1,11 @@
+{%  include '../header.html'  %}
+
+<form action="/device_create/" method="POST" enctype="multipart/form-data">
+    <h1>Добавить девайс</h1>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Создать</button>
+</form>
+
+
+{%  include '../footer.html'  %}

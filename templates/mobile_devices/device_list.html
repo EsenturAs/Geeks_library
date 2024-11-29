@@ -1,0 +1,35 @@
+{% include 'header.html' %}
+
+<div class="container my-5">
+    <div class="d-flex justify-content-around mb-4">
+        <a href="{% url 'smartphone_list' %}" class="btn btn-primary">#Смартфоны</a>
+        <a href="{% url 'tablet_list' %}" class="btn btn-secondary">#Планщеты</a>
+        <a href="{% url 'smartwatch_list' %}" class="btn btn-secondary">#Умные часы</a>
+    </div>
+
+    <a href="{% url 'device_create' %}" class="btn btn-primary">Добавить устройство</a>
+
+<!-- Контент с карточками -->
+<div class="container mt-4 content">
+    <div class="row justify-content-center">
+        {% for i in device_list %}
+        <!-- Пример карточки книги -->
+        <div class="col-md-4 mb-4">
+            <div class="card" style="width: 100%;">
+                <img src="{{i.image}}" class="card-img-top" alt="Обложка книги">
+                <div class="card-body">
+                    <h5 class="card-title">{{i.name}}</h5>
+                    <p class="card-text">{{i.category}}</p>
+                    <p class="card-text">{{i.price}}</p>
+                    <a href="/device_detail/{{ i.id }}/" class="btn btn-primary">Подробнее</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+        <!-- Добавьте дополнительные карточки книг здесь -->
+    </div>
+</div>
+
+
+<!-- Футер -->
+{% include 'footer.html' %}
