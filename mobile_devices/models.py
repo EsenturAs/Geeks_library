@@ -20,7 +20,7 @@ class Device(models.Model):
     manufacturer = models.CharField(max_length=100)
     price = models.IntegerField()
     release_date = models.DateField()
-    image = models.ImageField(upload_to='devices/')
+    image = models.ImageField(upload_to="devices/")
     features = models.ManyToManyField(Feature, null=True)
     category = models.ForeignKey(Category, on_delete=models.CASCADE, null=True)
 

@@ -6,16 +6,16 @@ from . import forms
 
 class DeviceListView(generic.ListView):
     model = models.Device
-    context_object_name = 'device_list'
+    context_object_name = "device_list"
     template_name = "mobile_devices/device_list.html"
 
     def get_queryset(self):
-        return models.Device.objects.filter().order_by('-id')
+        return models.Device.objects.filter().order_by("-id")
 
 
 class DeviceDetailView(generic.DetailView):
     model = models.Device
-    context_object_name = 'device_id'
+    context_object_name = "device_id"
     template_name = "mobile_devices/device_detail.html"
 
     def get_object(self, **kwargs):
@@ -36,7 +36,7 @@ class DeviceCreateView(generic.edit.CreateView):
 
 class SmartphoneListView(generic.ListView):
     model = models.Device
-    context_object_name = 'smartphone_list'
+    context_object_name = "smartphone_list"
     template_name = "mobile_devices/smartphone_list.html"
 
     def get_queryset(self):
@@ -45,7 +45,7 @@ class SmartphoneListView(generic.ListView):
 
 class TabletListView(generic.ListView):
     model = models.Device
-    context_object_name = 'tablet_list'
+    context_object_name = "tablet_list"
     template_name = "mobile_devices/tablet_list.html"
 
     def get_queryset(self):
@@ -54,7 +54,7 @@ class TabletListView(generic.ListView):
 
 class SmartwatchListView(generic.ListView):
     model = models.Device
-    context_object_name = 'smartwatch_list'
+    context_object_name = "smartwatch_list"
     template_name = "mobile_devices/tablet_list.html"
 
     def get_queryset(self):

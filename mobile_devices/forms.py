@@ -5,7 +5,7 @@ from . import models
 class DeviceForm(forms.ModelForm):
     class Meta:
         model = models.Device
-        fields = '__all__'
+        fields = "__all__"
 
     def form_valid(self, form):
         print(form.cleaned_data)
